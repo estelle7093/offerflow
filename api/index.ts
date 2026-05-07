@@ -6,8 +6,8 @@ app.use(express.json({ limit: '10mb' }));
 
 // Helpers
 async function callDeepSeek(prompt: string, isJson: boolean = true) {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey) throw new Error('DEEPSEEK_API_KEY is not defined');
+  const apiKey = process.env.Deepseek_offerflow;
+  if (!apiKey) throw new Error('Deepseek_offerflow is not defined');
 
   const response = await fetch('https://api.deepseek.com/chat/completions', {
     method: 'POST',
