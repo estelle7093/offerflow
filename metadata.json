@@ -1,0 +1,10 @@
+{
+  "name": "OfferFlow",
+  "description": "A professional AI-powered career management platform for tracking job applications, interview schedules, and interview preparation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "AI Interview Strategy Generation",
+    "Application Tracking",
+    "Interview Scheduling"
+  ]
+}
