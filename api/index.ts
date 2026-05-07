@@ -43,7 +43,7 @@ app.post('/api/ai/interview-strategy', verifyToken, async (req, res) => {
     const prompt = `你是一位资深的职业顾问。请根据以下职位信息和用户简历，生成一份极其详尽的面试准备策略。\n职位: ${role}\n公司: ${company}\n职位描述: ${jd}\n${userResume ? `用户简历: ${userResume}` : '（未提供简历，请基于职位要求进行通用分析）'}\n请提供专业、具体且具有针对性的分析。`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-flash-latest', contents: prompt,
+      model: 'gemini-1.5-flash', contents: prompt,
       config: {
         responseMimeType: 'application/json',
         responseSchema: {
@@ -74,7 +74,7 @@ app.post('/api/ai/retro-feedback', verifyToken, async (req, res) => {
     const prompt = `你是一位资深的面试官。以下是一位面试者的自我复盘：\n亮点: ${(keeps || []).join(', ')}\n不足: ${(problems || []).join(', ')}\n请提供 2-3 条极简的进阶建议。`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-flash-latest', contents: prompt,
+      model: 'gemini-1.5-flash', contents: prompt,
       config: { responseMimeType: 'application/json', responseSchema: { type: Type.ARRAY, items: { type: Type.STRING } } },
     });
     const text = response.text;
@@ -93,7 +93,7 @@ app.post('/api/ai/diagnose-resume', verifyToken, async (req, res) => {
     const prompt = `你是一位顶级互联网公司招聘专家。请对以下简历内容进行诊断并提供修改建议。\n在 marketValue 字段中，请提供该候选人的市场价值预估（例如：30k-50k），请确保使用货币单位而不是距离单位。\n简历内容:\n${resumeContent}`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-flash-latest', contents: prompt,
+      model: 'gemini-1.5-flash', contents: prompt,
       config: {
         responseMimeType: 'application/json',
         responseSchema: {
